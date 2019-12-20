@@ -733,7 +733,7 @@ handle.dispose();
 
 ## `Policy.timeout(duration, strategy)`
 
-Creates a timeout policy. The duration specifies how long to wait before timing out `execute()`'d functions. The strategy for timeouts, "Cooperative" or "Aggressive". A [ CancellationToken](#cancellationtoken) will be pass to any executed function, and in cooperative timeouts we'll simply wait for that function to return or throw. In aggressive timeouts, we'll immediately throw a TaskCancelledError when the timeout is reached, in addition to marking the passed token as failed.
+Creates a timeout policy. The duration specifies how long to wait before timing out `execute()`'d functions. The strategy for timeouts, "Cooperative" or "Aggressive". A [ CancellationToken](#cancellationtoken) will be passed to any executed function, and in cooperative timeouts we'll simply wait for that function to return or throw. In aggressive timeouts, we'll immediately throw a TaskCancelledError when the timeout is reached, in addition to marking the passed token as failed.
 
 ```js
 import { TimeoutStrategy, Policy, TaskCancelledError } from 'cockatiel';
@@ -756,7 +756,7 @@ export async function handleRequest() {
 
 ### `timeout.execute(fn)`
 
-Executes the given function as configured in the policy. A [CancellationToken](#cancellationtoken) will be pass to the function, which it should use for aborting operations as needed.
+Executes the given function as configured in the policy. A [CancellationToken](#cancellationtoken) will be passed to the function, which it should use for aborting operations as needed.
 
 ```ts
 await timeout.execute(cancellationToken => getInfoFromDatabase(cancellationToken));
